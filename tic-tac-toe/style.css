@@ -31,7 +31,8 @@ h1 {
     display: none;
 }
 .win p {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 .cantainer {
    display: flex;
@@ -69,4 +70,5 @@ h1 {
     color: var(--text);
     cursor: pointer;
     font-size: 14px;
+    box-shadow: 0 0 2px 0 black;
 }

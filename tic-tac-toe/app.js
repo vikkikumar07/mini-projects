@@ -6,6 +6,7 @@ let resetGame = document.querySelector("#reset-game");
 
 let playerO = true;
 
+
 let winnerPattern = [
     [0, 1, 2],
     [3, 4, 5],
@@ -16,6 +17,22 @@ let winnerPattern = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+newGame.addEventListener("click" , () => {
+    boxs.forEach((box) => {
+        box.innerText = "";
+        box.disabled = false;
+    });
+    win.classList.add("hide");
+    resetGame.style.display = "block";
+});
+
+resetGame.addEventListener("click" , () => {
+    boxs.forEach((box) => {
+        box.innerText = "";
+        box.disabled = false;
+    });
+});
 
 function cheakWinner() {
     for(let winner of winnerPattern) {
@@ -31,6 +48,7 @@ function cheakWinner() {
                 boxs.forEach((box) => {
                     box.disabled = true;
                 });
+                resetGame.style.display = "none";
                 return;
            }
         }
