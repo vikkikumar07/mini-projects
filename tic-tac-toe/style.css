@@ -1,0 +1,72 @@
+:root {
+    --body: #2E6FA0;
+    --bg: #49A4BB;
+    --btn: #464B71;
+    --text: #ffffff;
+    --txt: #722F99;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    background-color: var(--body);
+    height: 100vh;
+}
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+.win {
+    text-align: center;
+    margin-top: 10px;
+    color: var(--txt);
+}
+.hide {
+    display: none;
+}
+.win p {
+    font-size: 2rem;
+}
+.cantainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.boxs {
+    height: 330px;
+    width: 330px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: auto;  
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--bg);
+    cursor: pointer;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--txt);
+    box-shadow: 0 0 2px 0 black;
+}
+.btn {
+    padding: 6px 12px;
+    margin-block:10px ;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--btn);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 14px;
+}
