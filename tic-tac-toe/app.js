@@ -28,6 +28,7 @@ newGame.addEventListener("click" , () => {
     resetGame.style.display = "block";
     count = 0;
     gameOver = false;
+    playerO = true;
 });
 
 resetGame.addEventListener("click" , () => {
@@ -37,6 +38,7 @@ resetGame.addEventListener("click" , () => {
     });
     count = 0;
     gameOver = false;
+    playerO = true;
 });
 
 function cheakWinner() {

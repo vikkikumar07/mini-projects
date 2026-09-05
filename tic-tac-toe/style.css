@@ -12,16 +12,19 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+
 body {
     background-color: var(--body);
     height: 100vh;
 }
+
 h1 {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 15px;
     margin-top: 25px;
 }
+
 .win {
     text-align: center;
     margin-top: 15px;
@@ -31,26 +34,29 @@ h1 {
 .hide {
     display: none;
 }
+
 .win p {
     font-size: 1.5rem;
     font-weight: 600;
 }
-.cantainer {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
 .boxs {
     height: 330px;
     width: 330px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
-    margin: auto;  
+    margin: auto;
 }
 
-.box{
+.box {
     height: 100px;
     width: 100px;
     border: none;
@@ -62,9 +68,10 @@ h1 {
     color: var(--txt);
     box-shadow: 0 0 2px 0 black;
 }
+
 .btn {
     padding: 6px 12px;
-    margin-block:10px ;
+    margin-block: 10px;
     border-radius: 8px;
     border: none;
     background-color: var(--btn);
@@ -73,8 +80,9 @@ h1 {
     font-size: 14px;
     box-shadow: 0 0 2px 0 black;
 }
+
 @media(max-width:600px) {
-    .cantainer {
+    .container {
         margin-top: 100px;
     }
 }
