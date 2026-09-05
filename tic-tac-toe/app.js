@@ -5,7 +5,8 @@ let newGame = document.querySelector("#new-game");
 let resetGame = document.querySelector("#reset-game");
 
 let playerO = true;
-
+let count = 0;
+let gameOver = false;
 
 let winnerPattern = [
     [0, 1, 2],
@@ -25,6 +26,8 @@ newGame.addEventListener("click" , () => {
     });
     win.classList.add("hide");
     resetGame.style.display = "block";
+    count = 0;
+    gameOver = false;
 });
 
 resetGame.addEventListener("click" , () => {
@@ -32,6 +35,8 @@ resetGame.addEventListener("click" , () => {
         box.innerText = "";
         box.disabled = false;
     });
+    count = 0;
+    gameOver = false;
 });
 
 function cheakWinner() {
@@ -49,6 +54,7 @@ function cheakWinner() {
                     box.disabled = true;
                 });
                 resetGame.style.display = "none";
+                gameOver = true;
                 return;
            }
         }
@@ -66,5 +72,12 @@ boxs.forEach((box) => {
         }
        box.disabled = true;
        cheakWinner();
+       count++;
+
+       if(count === 9 && !gameOver) {
+            para.innerText ="Match Draw Plaese Try Again!";
+            resetGame.style.display = "none";
+            win.classList.remove("hide");
+        }
     });
 });
