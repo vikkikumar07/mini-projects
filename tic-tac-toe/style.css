@@ -25,7 +25,7 @@ h1 {
 .win {
     text-align: center;
     margin-top: 10px;
-    color: var(--txt);
+    color: red;
 }
 .hide {
     display: none;
