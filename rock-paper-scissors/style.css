@@ -53,7 +53,11 @@ img {
     gap: 2rem;
     margin-top: 5rem;
 }
-
+@media(max-width: 600px) {
+    .container {
+        gap: 1rem;
+    }
+}
 .container div {
     text-align: center;
     font-size: 1rem;

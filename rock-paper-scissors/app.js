@@ -15,16 +15,19 @@ const compPlay = () => {
 
 const cheakWinner = (compWin) => {
     if(compWin) {
+        compScore ++;
+        comp.innerText = compScore;
         msg.innerText = "You lose !"
     } else {
-       msg.innerText = "You win !"
+        userScore ++;
+        user.innerText = userScore;
+        msg.innerText = "You win !"
     }
 }
 
 const playGame = (userChoice) => {
     let compChoice =  compPlay();
-    console.log(userChoice);
-    console.log(compChoice);
+
     if(userChoice === compChoice) {
         msg.innerText = "Game Dwar !"
 
