@@ -29,6 +29,7 @@ const playGame = (userChoice) => {
     let compChoice =  compPlay();
 
     if(userChoice === compChoice) {
+        msg.style.color = "red";
         msg.innerText = "Game Dwar !"
 
     } else {
@@ -52,6 +53,7 @@ const playGame = (userChoice) => {
 choices.forEach((choice) => {
     choice.addEventListener("click", () => {
         let userChoice = choice.getAttribute("id");
+        msg.style.color = "";
         playGame(userChoice);
     });
 });
