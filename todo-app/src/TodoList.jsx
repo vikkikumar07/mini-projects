@@ -15,7 +15,7 @@ let saveData = (e) =>{
   } else {
     let finaldata = [...data, task];
     setData(finaldata);
-    toast.success("Task add Successfully.")
+    toast.success("Task add Successfully.");
   }
   setTask(''); 
 
@@ -24,7 +24,7 @@ let saveData = (e) =>{
 
 let showlist = data.map((v,i)=>{
   return (
-    <List key={i} v={v}/>
+    <List key={i} v={v} idx ={i} setData={setData} data={data}/>
   )
 })
   return (
@@ -46,8 +46,12 @@ let showlist = data.map((v,i)=>{
   )
 }
 
-function List({v}) {
+function List({v, idx, setData, data}) {
+  let deleteList = () =>{
+      let finallist = data.filter((v, i) => i!=idx);
+      setData(finallist);
+  }
   return (
-        <li className='w-[100%] p-2 bg-[var(--list)] rounded-lg text-white mb-4 text-[14px] shadow-lg cursor-pointer relative'>{v} <span className='absolute right-2 text-[12px] cursor-pointer'>&#10060;</span></li>
+        <li className='w-[100%] p-2 bg-[var(--list)] rounded-lg text-white mb-4 text-[14px] shadow-lg cursor-pointer relative'>{idx+1}. {v} <span onClick={deleteList} className='absolute right-2 text-[12px] cursor-pointer'>&#10060;</span></li>
   )
 }
