@@ -41,7 +41,7 @@ let showlist = data.map((v,i)=>{
         <div className='w-[80%] m-auto p-4'>
             <h1  className='text-[25px] text-center font-semibold'>Todo list</h1>
             <form onSubmit={saveData} className='w-[100%] mt-2 flex'>
-              <input type='text'value={task} onChange={(e) => setTask(e.target.value)} name='task' className='flex-[80%] p-1 outline-none text-[16px] px-2'/>
+              <input type='text'value={task} onChange={(e) => setTask(e.target.value)} name='task' className='flex-[80%] p-1 outline-none text-[16px] px-2' required/>
               <button className='flex-[20%] bg-[var(--btn)] p-1 cursor-pointer'>Save</button>
             </form>
             <div className='w-[100%] mt-4 flex'>
