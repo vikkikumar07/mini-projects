@@ -47,11 +47,13 @@ let showlist = data.map((v,i)=>{
 }
 
 function List({v, idx, setData, data}) {
+  let [don, setDon] = useState(false)
+
   let deleteList = () =>{
       let finallist = data.filter((v, i) => i!=idx);
       setData(finallist);
   }
   return (
-        <li className='w-[100%] p-2 bg-[var(--list)] rounded-lg text-white mb-4 text-[14px] shadow-lg cursor-pointer relative'>{idx+1}. {v} <span onClick={deleteList} className='absolute right-2 text-[12px] cursor-pointer'>&#10060;</span></li>
+        <li className={`w-[100%] p-2 bg-[var(--list)] rounded-lg text-white mb-4 text-[14px] shadow-lg cursor-pointer relative ${don ? 'activelist' : ''}` }onClick={()=> setDon(!don)}>{idx+1}. {v} <span onClick={deleteList} className='absolute right-2 text-[12px] cursor-pointer'>&#10060;</span></li>
   )
 }

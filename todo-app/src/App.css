@@ -4,3 +4,8 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+.activelist {
+    text-decoration: line-through  2px;
+    background-color: rgba(173, 255, 47, .7);
+    color: black;
+}
