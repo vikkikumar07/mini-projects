@@ -31,7 +31,7 @@ jobs:
 
       - name: Install React dependencies
         working-directory: todo-app
-        run: npm ci
+        run: npm install
 
       - name: Build React Todo App
         working-directory: todo-app
