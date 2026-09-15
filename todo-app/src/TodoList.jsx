@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css';
 import {collapseToast, toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function TodoList() {
   let [task, setTask] = useState('');
-  let [data, setData] = useState([]);
+  let [data, setData] = useState(()=>{
+    return JSON.parse(localStorage.getItem("data")) || [];
+  });
+ 
+
+useEffect(()=>{
+  localStorage.setItem('data', JSON.stringify(data));
+}, [data])
+
 
 let saveData = (e) =>{
   e.preventDefault();
