@@ -1,0 +1,103 @@
+name: Deploy Mini Projects
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: todo-app/package-lock.json
+
+      - name: Install React dependencies
+        working-directory: todo-app
+        run: npm ci
+
+      - name: Build React Todo App
+        working-directory: todo-app
+        run: npm run build
+
+      - name: Prepare website
+        run: |
+          mkdir site
+
+          cp -r rock-paper-scissors site/
+          cp -r tic-tac-toe site/
+
+          mkdir site/todo-app
+          cp -r todo-app/build/* site/todo-app/
+
+          cat > site/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Vikki Kumar - Mini Projects</title>
+          </head>
+          <body>
+            <h1>Mini Projects</h1>
+
+            <ul>
+              <li>
+                <a href="./rock-paper-scissors/">
+                  Rock Paper Scissors
+                </a>
+              </li>
+
+              <li>
+                <a href="./tic-tac-toe/">
+                  Tic Tac Toe
+                </a>
+              </li>
+
+              <li>
+                <a href="./todo-app/">
+                  React Todo App
+                </a>
+              </li>
+            </ul>
+          </body>
+          </html>
+          EOF
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
