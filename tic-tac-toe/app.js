@@ -62,7 +62,6 @@ function cheakWinner() {
         }
     }
 }
-
 boxs.forEach((box) => {
     box.addEventListener("click", () => {
         if(playerO) {
