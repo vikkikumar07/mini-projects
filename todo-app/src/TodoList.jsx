@@ -62,6 +62,6 @@ function List({v, idx, setData, data}) {
       setData(finallist);
   }
   return (
-        <li className={`w-[100%] p-2 bg-[var(--list)] rounded-lg text-white mb-4 text-[14px] shadow-lg cursor-pointer relative ${don ? 'activelist' : ''}` }onClick={()=> setDon(!don)}>{idx+1}. {v} <span onClick={deleteList} className='absolute right-2 text-[12px] cursor-pointer'>&#10060;</span></li>
+        <li className={`w-[100%] p-2 bg-[var(--list)] rounded-lg text-white mb-4 text-[16px] shadow-lg cursor-pointer relative ${don ? 'activelist' : ''}` }onClick={()=> setDon(!don)}>{idx+1}. {v} <span onClick={deleteList} className='absolute right-2 text-[12px] cursor-pointer'>&#10060;</span></li>
   )
 }
