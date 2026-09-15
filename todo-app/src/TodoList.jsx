@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
-import {collapseToast, toast, ToastContainer} from 'react-toastify'
+import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function TodoList() {
@@ -58,7 +58,7 @@ function List({v, idx, setData, data}) {
   let [don, setDon] = useState(false)
 
   let deleteList = () =>{
-      let finallist = data.filter((v, i) => i!=idx);
+      let finallist = data.filter((v, i) => i!==idx);
       setData(finallist);
   }
   return (
